@@ -3,6 +3,9 @@
 :root {
     --primary-color: rgb(13, 106, 134);
     --primary-color-darker: rgb(25, 63, 75);
+    --primary-color-red: rgb(228, 133, 133);
+    --primary-color-green: rgb(108, 202, 124);
+    --primary-color-yellow: rgb(228, 226, 133);
 }
 
 *{
@@ -63,3 +66,13 @@ form button:hover{
     background: var(--primary-color-darker);
 }
 
+.ruim, .normal{
+    background: var(--primary-color-red);
+    color: #e01515;
+    padding: 10px 20px;
+}
+
+.normal{
+    background: var(--primary-color-green);
+    color: #15801e;
+}
