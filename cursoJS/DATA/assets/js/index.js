@@ -1,74 +1,62 @@
-function getDateP(){
+/*const resultado = document.querySelector('.container h1');
+const data = new Date();
+
+resultado.innerHTML = data.toLocaleString('pt-BR', { dateStyle: 'full', timeStyle: 'short' })*/
+
+function getDateP() {
 
     const data = new Date();
+    const resultado = document.querySelector(".container h1")
     let diaSemana = data.getDay();
 
-    function zeroAEsquerda(num){
+    function zeroAEsquerda(num) {
         return num >= 10 ? num : `0${num}`
     }
-    
-    function getDay(data){
-        const day = zeroAEsquerda(data.getDate()); 
+
+    function getDay(data) {
+        const day = zeroAEsquerda(data.getDate());
         return day;
     }
 
+    function getMonthText(numMonth) {
+        const months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+        return months[numMonth];
+    }
+
     function getMonth(data){
-        const month = zeroAEsquerda(data.getMonth() + 1);
+        const month = data.getMonth();
         return month;
     }
 
-    function getYear(data){
-        const year = zeroAEsquerda(data.getFullYear());
+    function getYear(data) {
+        const year = data.getFullYear();
         return year;
     }
 
-    function getHours(data){
-        const hours = zeroAEsquerda(data.getHours);
+    function getHours(data) {
+        const hours = zeroAEsquerda(data.getHours());
+        return hours;
     }
 
-    function getDayWeenk(diaSemana){
-
-        let diaSemanaTexto;
-    
-        switch (diaSemana) {
-    
-            case 0:
-                diaSemanaTexto = 'Domingo';
-                return diaSemanaTexto;
-        
-            case 1:
-                diaSemanaTexto = 'Segunda-Feira';
-                return diaSemanaTexto;
-        
-            case 2:
-                diaSemanaTexto = 'Terça-Feira';
-                return diaSemanaTexto;
-        
-            case 3:
-                diaSemanaTexto = 'Quarta-Feira';
-                return diaSemanaTexto;
-        
-            case 4:
-                diaSemanaTexto = 'Quinta-Feira';
-                return diaSemanaTexto;
-        
-            case 5:
-                diaSemanaTexto = 'Sexta-Feira';
-                return diaSemanaTexto;
-            
-            case 6:
-                diaSemanaTexto = 'Sábado';
-                return diaSemanaTexto;
-            
-            default:
-                diaSemanaTexto = '';
-                return diaSemanaTexto;
-        }
-    
+    function getMin(data) {
+        const min = zeroAEsquerda(data.getMinutes())
+        return min;
     }
 
+    function getDayWeenk(diaSemana) {
+        const semana = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+        return semana[diaSemana];
+    }
+
+    function exibicao(data) {
+        const numMonth = getMonth(data);
+        const exibindo = `${getDayWeenk(diaSemana)}, ${getDay(data)} de ${getMonthText(numMonth)} de ${getYear(data)}<br>${getHours(data)}:${getMin(data)}`;
+        return exibindo;
+    }
+
+    const exibindo = exibicao(data);
+    resultado.innerHTML = exibicao(data)
+    console.log(exibindo)
 }
-
-
 
 getDateP()
