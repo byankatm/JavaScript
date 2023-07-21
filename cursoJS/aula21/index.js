@@ -10,8 +10,11 @@ function criaPessoa(nome, sobrenome, a, p){
         get nomeCompleto(){
             return `${this.nome} ${this.sobrenome}`
         },
-
+        
+        //setter
         set nomeCompleto(valor){
+            valor = valor.split(' ');
+            this.nome = valor.shift()
             console.log(valor)
         },
 
