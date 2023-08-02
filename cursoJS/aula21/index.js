@@ -14,11 +14,12 @@ function criaPessoa(nome, sobrenome, a, p){
         //setter
         set nomeCompleto(valor){
             valor = valor.split(' ');
-            this.nome = valor.shift()
+            this.nome = valor.shift();
+            this.sobrenome = valor.join(' ')
             console.log(valor)
         },
 
-        fala(assunto) {
+        fala(assunto = 'falando sobre nada') {
             return `${this.nome} está ${assunto}.`;
         },
 
@@ -35,6 +36,10 @@ function criaPessoa(nome, sobrenome, a, p){
 }
 
 const p1 = criaPessoa('Byanka', 'Tomaz', 1.8, 80);
-p1.nomeCompleto = 'Samuel Monteiro'
-console.log(p1.imc)
+console.log(p1.nome)
+console.log(p1.sobrenome)
 console.log(p1.nomeCompleto)
+p1.nomeCompleto = 'Samuel Monteiro'
+console.log(p1.nome)
+console.log(p1.sobrenome)
+console.log(p1.fala())
